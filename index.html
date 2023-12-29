@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>THINK</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #output {
+        font-size: 24px;
+    }
+</style>
+
+</head>
+<body>
+    <h1>THINK</h1>
+    <div id="questionDisplay"></div>
+    <br><br>
+    <button onClick="newQuestion()">NEXT QUESTION</button>
+    <br><br>
+ 
+    <script src="javascript.js"></script>
+    <script>
+        var questions = [
+            "Exercise", 
+            "Nutrient Dense Food Tasting Good", 
+            "Music", 
+            "Land",
+            "Computers",
+            "School",
+            "Eyes",
+            "How to make audiobooks more enjoyable",
+        ];
+
+        function newQuestion() {
+            var randomNumber = Math.floor(Math.random() * (questions.length));
+            document.getElementById('questionDisplay').innerHTML = questions[randomNumber];
+        }
+
+        // Add event listener for keyup event
+        document.addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                newQuestion();
+            }
+        });
+    </script>
+
+</body>
+</html>
