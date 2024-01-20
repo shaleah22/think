@@ -13,11 +13,15 @@
     #output {
         font-size: 24px;
     }
+    
+    #questionDisplay {
+        font-size: 36px; /* Adjust the font size as per your preference */
+    }
 </style>
 
 </head>
 <body>
-    <h1>THINK</h1>
+    
     <div id="questionDisplay"></div>
     <br><br>
     <button onClick="newQuestion()">NEXT QUESTION</button>
@@ -25,30 +29,55 @@
  
     <script src="javascript.js"></script>
     <script>
-        var questions = [
-            "Exercise", 
-            "Nutrient Dense Food Tasting Good", 
-            "Music", 
-            "Land",
-            "Computers",
-            "School",
-            "Eyes",
-            "How to make audiobooks more enjoyable",
-            "Summer Trip",
-        ];
+    var questions = [
+        "Exercise", 
+        "Nutrient Dense Food Tasting Good", 
+        "Music", 
+        "Land",
+        "Computers",
+        "School",
+        "Eyes",
+        "How to make audiobooks more enjoyable",
+        "Biking, kayaking through woods with many off leash dogs",
+        "Handstand",
+        "Pull up",
+        "Horseback Riding",
+        "Hiking With Dogs Freely Walking",
+        "Biking with dogs pulling",
+        "Snowboard with dogs",
+        "Mountain biking with dogs",
+        "Kitesurfing",
+        "Surfing",
+        "Rockclimbing",
+        "Front Splits",
+        "SUP in pool",
+        "Paragliding",
+        "Skiing",
+        "Kayaking Rapids",
+        "Paddleboard",
+        "Rollerskating or blading",
+        "Skateboarding",
+        "Ice Skating",
+        "Pickleball",
+        "Middle Split",
+    ];
 
-        function newQuestion() {
-            var randomNumber = Math.floor(Math.random() * (questions.length));
-            document.getElementById('questionDisplay').innerHTML = questions[randomNumber];
+    function newQuestion() {
+        var randomNumber = Math.floor(Math.random() * (questions.length));
+        document.getElementById('questionDisplay').innerHTML = questions[randomNumber];
+    }
+
+    // Call newQuestion() on page load
+    window.onload = newQuestion;
+
+    // Add event listener for keyup event
+    document.addEventListener('keyup', function(event) {
+        if (event.key === 'Enter') {
+            newQuestion();
         }
+    });
+</script>
 
-        // Add event listener for keyup event
-        document.addEventListener('keyup', function(event) {
-            if (event.key === 'Enter') {
-                newQuestion();
-            }
-        });
-    </script>
 
 </body>
 </html>
